@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<html>
+<head>
+<!-- <link rel="stylesheet" href="{{ STATIC_URL }}css/vimeo.css"> -->
+<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/navigation.css" type="text/css">
+<!-- <link rel="stylesheet" href="../../static/css/vimeo.css">  -->
+</head>
+<body>
+<!--main start-->
+<div id ="main" style="height:1100px;width:1000px;margin-left:150px;">
+
+	<ul class="one-ul">
+		<!-- <li><a href="{% url 'buying' %}">Home</a></li> -->
+	</ul>
+	<div>
+		{% block content %}
+		{% endblock %}
+	</div>
+	
+</div>
+</body>
+</html>

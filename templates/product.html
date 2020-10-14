@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<form id='form' name='register' method='post' enctype='multipart/form-data' action="{% url 'producting' %}">
+	 {% csrf_token %}
+<ul>
+    <!-- <label>sellers_id</label>
+    <input type="text"  name="sellers_id" class="form-control"/><br> -->
+    <label>product_name</label>
+    <input type="text"  name="product_name" class="form-control"/><br>
+    <label>product_details</label>
+    <input type="text"  name="product_details" class="form-control"/><br>
+    <label>product_images</label>
+    <input type="file"  name="product_images"/><br>
+    
+    <button type="submit" class="btn btn-primary">Click</button>
+<br>
+{%if message%}
+<p class="alert alert-primary" role="alert">{{message}}</p>
+{% endif %}
+</form>
+{% endblock %}

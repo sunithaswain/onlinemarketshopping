@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+<form id='form' name='register' method='post' enctype='multipart/form-data' action="{% url 'buying' %}">
+	 {% csrf_token %}
+
+     <!-- {{form.as_p}} -->
+
+
+
+    <label>name</label>
+    {% if name %}
+    <input type="text"  name="name" class="form-control" value="{{name}}" class="btn btn-primary" /><br>
+    {% else %}
+    <input type="text"  name="name" class="form-control" placeholder="Please Enter yous name here" class="btn btn-primary" /><br>
+    {% endif %}
+
+    <p class="help-block text-danger" >{{form.name.errors}}</p>
+           
+    <label>email</label>
+    {% if email %}
+    <input type="email"  name="email" class="form-control"  class="btn btn-primary" value="{{email}}"/><br>
+    {% else %}
+    <input type="email"  name="email" class="form-control"  class="btn btn-primary" placeholder="Please Enter Email Address"/><br>
+    {% endif %}
+    <p class="help-block text-danger" >{{form.email.errors}}</p>
+
+
+    <label>mobile</label>
+    {%if mobile%}
+    <input type="number"  name="mobile" class="form-control" class="btn btn-primary" value="{{mobile}}"/><br>
+    {%else%}
+    <input type="number"  name="mobile" class="form-control"  class="btn btn-primary" placeholder="Please Enter Mobile number"/><br>
+    {%endif %}
+    <p class="help-block text-danger">{{form.mobile.errors}}</p>
+
+
+
+    <label>deliver_address</label>
+    <input type="text"  name="deliver_address" class="form-control" class="btn btn-primary"/><br>
+
+
+    <label>password</label>
+    {% if password1 %}
+    <input type="password"  name="password1" class="form-control" class="btn btn-primary" value="{{password1}}"/><br>
+    {% else %}
+    <input type="password"  name="password1" class="form-control" class="btn btn-primary" placeholder="Please Enter Password here !"/><br>
+    {% endif %}
+    <p class="help-block text-danger">{{form.password1.errors}}</p>
+    <label>Confirm password</label>
+    {% if password2 %}
+    <input type="password"  name="password2" class="form-control" class="btn btn-primary" value="{{password2}}"/><br>
+    {% else %}
+    <input type="password"  name="password2" class="form-control" class="btn btn-primary" placeholder="Please Enter Password here !"/><br>
+    {% endif %}
+    <p class="help-block text-danger">{{form.password2.errors}}</p>
+
+    <button type="submit" class="btn btn-primary">Click</button>
+
+</form>
+
+{%if message%}
+<p class="alert alert-primary" role="alert">{{message}}</p>
+{% endif %}
+{% endblock %}

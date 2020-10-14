@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<form id='form' name='register' method='post' enctype='multipart/form-data' action="{% url 'selling' %}">
+	 {% csrf_token %}
+<ul>
+    <label>name</label>
+    <input type="text"  name="name" class="form-control"/><br>
+    <label>email</label>
+    <input type="text"  name="email" class="form-control"/><br>
+    <label>password</label>
+    <input type="password"  name="password" class="form-control"/><br>
+    <label>sellers_contact_address</label>
+    <input type="text"  name="sellers_contact_address" class="form-control"/><br>
+    <label>sellers_contact_number</label>
+    <input type="text"  name="sellers_contact_number" class="form-control"/><br>
+<button type="submit" class="btn btn-primary">Click</button>
+<br>
+{%if message%}
+<p class="alert alert-primary" role="alert">{{message}}</p>
+{% endif %}
+</form>
+{% endblock %}

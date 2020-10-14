@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="get" action="{% url 'searching'%}" >
+    <input  id="search_box1" type="text" name="search_box" class="form-control col-lg-10" placeholder="Search..." style="position:fixed;"/>
+    <button id="search_submit" type="submit" class="btn btn-primary" >Submit</button>
+</form>
+<!-- search function result placed here -->
+
+{% if all %}
+    <ul>
+    {% for each in all %}
+        <li>
+            <div style="height:200px;">
+                <div style="float:left;">                    
+                    <img src"{{media}}{{each.product_images}}" style="width:200px;height:200px;">
+                    <p>{{media}}{{each.product_images}}</p>
+                </div>
+                <div style="float:left;margin-left:20px;"><a href="/get/{{ each.sellers_id }}/">{{each.product_name}}
+                    <br></br>
+                ,<br></br>
+                {{each.product_details}}</a></div>
+            </div>
+        </li><br></br><br></br><br></br>
+
+       <!--  <img src"..\//media\//images\//10877811_662604530524188_702865332_n.jpg" style="width:200px;height:200px;">   -->    
+        
+        
+    {% endfor %}
+    </ul>
+
+{% else %}
+    <p>No details are available from searchings.</p>
+{% endif %}
+
+<!-- gettings  function result-->
+
+
+
+{% if list1 %}
+    <ul>
+    {% for each in list1 %}
+        <li>
+        	<div style="height:200px;">
+	        	<div style="float:left;">
+	        		<img src"{{MEDIA_URL}}{{each.product_images}}" style="width:200px;height:200px;">
+                    <p>{{media}}{{each.product_images}}</p>
+                    {{MEDIA_URL}}{{each.product_images}}
+                </div>
+	        	<div style="float:left;margin-left:20px;"><a href="/get/{{ each.sellers_id }}/">{{each.product_name}}
+	        		<br></br>
+	        	,<br></br>
+	        	{{each.product_details}}</a></div>
+        	</div>
+        </li><br></br><br></br><br></br>
+
+        <!-- <img src"..\//media\//images\//10877811_662604530524188_702865332_n.jpg" style="width:200px;height:200px;"> -->
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No details are available from gettings.</p>
+{% endif %}
+
+{% endblock %}
